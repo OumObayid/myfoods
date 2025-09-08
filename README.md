@@ -1,127 +1,129 @@
-=================MyFood====================
- 
-Myfood is a project made in Angular 13.
-it has two parts: user part and admin part. 
-- this is a fruit shop. user can buy fruits by specifying quantity.
-- the customer can see, manage his cat....
-- As for the administrator, he can add, delete, modify or display one or all of the fruits.
-- The data is managed by firebase. 
-- The site also includes a firebase authentication system. 
-- Login via google or facebook is possible.
-- It is possible to recover the lost password by verifying the email entered
+# MyFood
 
-the application has 15 components, 5 services and 1 guard
+![Angular](https://img.shields.io/badge/Angular-13-red)
+![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-blue)
+![CSS3](https://img.shields.io/badge/CSS3-Design-green)
 
-Tutoriel for Angular 13 Firebase CRUD Operations:
-================================================
+---
 
-A- INSTALL ANGULAR APP
-======================
+## Aperçu  
 
-1- Install Angular App:
-command: npm install -g @angular/cli
+- Voir en ligne : [https://myfoods.oumportfolio.com/](https://myfoods.oumportfolio.com/)  
+- Voir la présentation sur Youtube : [https://www.youtube.com/watch?v=tC3BCyFKXMQ](https://www.youtube.com/watch?v=tC3BCyFKXMQ)  
 
-2- Create a new application (my-food):
-command: ng new my-food
+---
 
-3- get into the project’s directory by following the following command:
-command: cd my-food
+## =================MyFood====================
 
-3- Install ng-bootstrap:
-command: npm i @ng-bootstrap/ng-bootstrap
+MyFood est un projet développé avec **Angular 13**.  
+Il comporte deux parties : une partie utilisateur et une partie administrateur.  
 
-4- Test your Project:
-command: ng serve --open
+- Il s’agit d’une boutique de fruits en ligne. L’utilisateur peut acheter des fruits en spécifiant la quantité.  
+- Le client peut voir et gérer son panier.  
+- L’administrateur peut ajouter, supprimer, modifier ou afficher un ou plusieurs fruits.  
+- Les données sont gérées par **Firebase**.  
+- Le site inclut également un système d’authentification Firebase.  
+- La connexion via **Google** ou **Facebook** est possible.  
+- Il est possible de récupérer le mot de passe perdu en vérifiant l’adresse e-mail saisie.  
 
-B- FIREBASE ACCOUNT SET UP + ANGULARFIRE LIBRARY INTEGRATION
-============================================================
+L’application contient **15 composants**, **5 services** et **1 guard**.  
 
-1- Go to Firebase website : https://console.firebase.google.com/, and login using your gmail, when you see given below screen click on Add Project section.
+---
 
-2- Enter your project name, accept the terms and condition and click on Create project button.
+## Tutoriel : Opérations CRUD Angular 13 + Firebase
+===================================================
 
-3- Click on your project then you’ll enter in your Firebase dashboard
+### A- INSTALLATION DE L’APPLICATION ANGULAR
 
-4- Navigate to Develop > Authentication > Web setup then click on the Web setup button, and a popup will appear along with your firebase credentials.
+1. Installer Angular CLI :  
+```bash
+npm install -g @angular/cli
+```
 
-5- Copy these Firebase credentials, you will have to paste these credentials in your src/environments/enviorment.ts file to make the connection between Firebase and your Angular app, like this:
+2. Créer une nouvelle application (my-food) :
+```
+ng new my-food
+```
 
+3. Accéder au dossier du projet :
+```
+cd my-food
+```
+
+4. Installer ng-bootstrap :
+```
+npm i @ng-bootstrap/ng-bootstrap
+```
+
+5.Tester le projet :
+```
+ng serve --open
+```
+
+###B- CONFIGURATION DU COMPTE FIREBASE + INTÉGRATION ANGULARFIRE
+
+1. Aller sur Firebase : https://console.firebase.google.com/
+ et créer un projet.
+
+2. Donner un nom au projet, accepter les conditions et cliquer sur Créer un projet.
+
+3. Une fois dans le dashboard, aller sur Develop > Authentication > Web setup puis cliquer sur Web setup.
+
+4. Copier les identifiants Firebase et les coller dans src/environments/environment.ts :
+```
 export const environment = {
-
   production: true,
-
   firebase: {
-
     apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-
     authDomain: "xxxxxxxxxxxxxxxxxx",
-
     projectId: "xxxxxxxxxxxxxx",
-
     storageBucket: "xxxxxxxxxxxxxxxxxxx",
-
     messagingSenderId: "xxxxxxxxxxxxx",
-
     appId: "xxxxxxxxxxxxxxxxxxxxx"
-
   },
-
 };
+```
 
-6- Next, click on create database and make sure to set the Firebase security rules to test mode.
-Don’t forget to change your Firebase database rules, go to Database > Rules. Add these security rules in your Realtime Database’s Rules tab and then publish them.
+5. Créer une base de données et mettre les règles de sécurité en mode test.
 
-C- INSTALL FIREBASE AND ANGULARFIRE PACKAGE
-===========================================
+6. Modifier les règles dans Database > Rules puis publier.
+   
 
-1- install firebase
-command: npm install firebase @angular/fire --save
+###C- INSTALLATION DE FIREBASE ET ANGULARFIRE
 
-2- Open app.module.ts file and import the Firebase modules and environment file:
+1. Installer firebase et AngularFire :
+```
+npm install firebase @angular/fire --save
+```
 
-// Import Firebase modules + environment
-
+2. Dans app.module.ts, importer les modules Firebase et l’environnement :
+```
 import { AngularFireModule } from '@angular/fire/compat';
-
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-
 import { environment } from '../environments/environment';
 
 @NgModule({
-
   declarations: [AppComponent],
-
   imports: [
-
     BrowserModule,
-
     AppRoutingModule,
-
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-
     AngularFirestoreModule,
-
     AngularFireStorageModule,
-
     AngularFireDatabaseModule,
-
   ],
-
   providers: [],
-
   bootstrap: [AppComponent],
-
 })
+export class AppModule {}
+```
 
-..........
+###Licence
 
-
-
+Ce projet est sous licence MIT
+   
