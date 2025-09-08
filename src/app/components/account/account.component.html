@@ -1,0 +1,65 @@
+<div class="body mt-3 w-75 mx-auto">
+  <div class="container">
+
+    <form #f="ngForm"  (ngSubmit)="updateAccount(f)">
+    <div class="card">
+      <div class="card-body mx-5">
+        <div class="d-flex flex-row justify-content-between txtAccount">
+          <div>name:</div>
+          <input name="name" class="text-success w-50 inputcss"   required
+          [(ngModel)]="name" />
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body mx-5">
+        <div class="d-flex flex-row justify-content-between txtAccount">
+          <div>email:</div>
+          <input name="email" class="text-success w-50 inputcss bg-white" disabled  required
+          [(ngModel)]="email"/>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body mx-5">
+        <div class="d-flex flex-row justify-content-between txtAccount">
+          <div>address:</div>
+          <input name="adress" class="text-success w-50 inputcss"  required
+          [(ngModel)]="adress" />
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="text-danger" *ngIf="messageAccount">{{messageAccount}}</div>
+    <button type="submit" class="btn btn-warning mb-4 mt-2" [disabled]="f.invalid" >
+      Update account
+    </button>
+  </div>
+  </form>
+
+  <form name="frm" #frm="ngForm" (ngSubmit)="updatePass(frm)">
+    <div class="card">
+      <div class="card-body mx-5">
+        <div class="d-flex flex-row justify-content-between txtAccount">
+          <div>old password:</div>
+          <input ngModel required name="oldPass" class="text-success w-50 inputcss" type="password"/>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body mx-5">
+        <div class="d-flex flex-row justify-content-between txtAccount">
+          <div>new password:</div>
+          <input ngModel required name="newPass" class="text-success w-50 inputcss" type="password" />
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="text-danger" *ngIf="messagePass">{{messagePass}}</div>
+    <button type="submit" class="btn btn-warning  mt-2" [disabled]="frm.invalid" >
+      Update password
+    </button>
+  </div>
+  </form>
+  </div>
+</div>

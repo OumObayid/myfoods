@@ -1,0 +1,41 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <!-- *ngFor="let good of goods; index as i" loop that traverses an array -->
+      <div
+        class="col col-12 col-md-6 col-lg-3 mt-5"
+        *ngFor="let good of goods; index as i"
+      >
+        <!-- code bootstrap of card -->
+        <div class="card shadow-sm">
+          <img [src]="good.photoUrl" class="card-img-top mx-auto" alt="..." />
+          <!-- <img src="{{ good.photoUrl }}" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <div class="titleprice">
+              <h5 class="card-title">{{ good.name | titlecase }}</h5>
+              <h4 class="card-text text-success">
+                {{ good.price | currency }}
+              </h4>
+            </div>
+            <button
+              (click)="addToCart(i)"
+              class="btn btn-warning"
+              *ngIf="add !== i"
+            >
+              Add to cart
+            </button>
+            <div *ngIf="add===i">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Amount Kg"
+                #amount
+              />
+              <button (click)="buy(amount.value)" class="btn btn-warning">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

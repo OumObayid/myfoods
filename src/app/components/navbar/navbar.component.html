@@ -1,0 +1,123 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container"> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top p-0">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="../../../assets/logo.png" alt="..." height="50" />
+    </a>
+    <button
+      (click)="toggleNavbar()"
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- as the mobile navigation button does not work for lack of jquery, we create the click event: (click) and we add the class: [class.show]="isOpen". See typescript file -->
+    <!-- [class.show] add or remove the class: "show" -->
+    <div
+      class="collapse navbar-collapse text-end"
+      [class.show]="isOpen"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <!-- the "routerLinkActive" attribute gives the "active" attribute if the route corresponds to the open page.
+           the "routerLinkActiveOptions" attribute gives the "active" attribute exactly if the route is exactly "/" -->
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <div class="d-flex">
+            <!-- <img src="../../../assets/account.png" alt="" height="30px" /> -->
+            <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              Account
+            </span>
+          </div>
+          <ul class="dropdown-menu">
+            <div *ngIf="!isUser" class="px-3 welcome">Welcome to MyFoods!</div>
+            <div *ngIf="isUser" class="px-3 welcome">
+              Welcome back,
+              <span class="welcomeName" *ngIf="!isAdmin">{{ userName }}</span
+              ><span class="welcomeName" *ngIf="isAdmin">Admin</span>
+            </div>
+            <li class="nav-item dropdown-nav-item d-flex" *ngIf="!isUser">
+              <a
+                class="dropdown-itemmm item1"
+                routerLink="/login"
+                routerLinkActive="active"
+                ><img src="../../../assets/login.png" height="30px" alt="" />
+                <span class="mx-3">Signin</span></a
+              >
+              <a
+                class="dropdown-itemmm"
+                routerLink="/signup"
+                routerLinkActive="active"
+                ><img src="../../../assets/register.png" height="25px" alt="" />
+                <span class="mx-3">Register</span></a
+              >
+            </li>
+            <li class="nav-item dropdown-nav-item" *ngIf="isUser">
+              <a
+                class="dropdown-itemIn"
+                *ngIf="!isAdmin"
+                [routerLink]="['/account', userId]"
+                routerLinkActive="active"
+              >
+                <div class="dropdown-itemmm">
+                  <img src="../../../assets/account.png" height="25px" alt="" />
+                  <span class="mx-3">My Account</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item dropdown-nav-item" *ngIf="isUser">
+              <a
+                class="dropdown-itemIn"
+                *ngIf="!isAdmin"
+                [routerLink]="['/orders', userId]"
+                routerLinkActive="active"
+              >
+                <div class="dropdown-itemmm">
+                  <img src="../../../assets/order.png" height="25px" alt="" />
+                  <span class="mx-3">My Orders</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item dropdown-nav-item" *ngIf="isUser">
+              <div class="dropdown-itemmm d-flex">
+                <img src="../../../assets/logout.png" height="25px" alt="" />
+                <button
+                  class="btn dropdown-item align-items-center py-0"
+                  (click)="logout()"
+                >
+                  Sign Out
+                </button>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item itemCart" >
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+            <img src="../../../assets/cart.png" alt="..." height="30px" />
+            <span class="cartCount">{{ cartCount }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

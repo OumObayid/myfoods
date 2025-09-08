@@ -1,0 +1,51 @@
+span.cartCount{
+  position: absolute;
+  top:20px;
+  /* left:10px; */
+  background-color:#BB2D3B;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+li.itemCart{
+  margin-right: 18px;
+}
+.dropdown-nav-item{
+  width: 280px;
+}
+.dropdown-itemmm:hover{
+  background-color: #E9ECEF;
+}
+.dropdown-itemmm{
+  text-decoration: none;
+  color:black;
+  padding:8px;
+}
+.dropdown-itemIn{
+  text-decoration: none;
+  color:black;
+}
+
+.item1{
+  margin: 0 10px;
+}
+.welcome{
+  color:#b9154e;
+  font-weight: bold;
+}
+.welcomeName{
+  color:#fda223;
+  font-weight: bold;
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+

@@ -1,0 +1,45 @@
+<div class="body ">
+  <div class="container">
+    <div class="my-5 bg-white ">
+      <form #f="ngForm" (ngSubmit)="updateGood(f)">
+        <div class="progress mb-2" *ngIf="percentageVal | async as progress">
+          <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': progress + '%' }">
+            Please wait
+          </div>
+       </div>
+
+        <input
+          type="text"
+          class="form-control mb-3"
+          name="name"
+          placeholder="name"
+          required
+          [(ngModel)]="name"
+        />
+        <input
+          type="number"
+
+          class="form-control mb-3"
+          name="price"
+          placeholder="price"
+          required
+          [(ngModel)]="price"
+        />
+        <img [src]="photoUrl" height="180px" alt="">
+        <input
+          type="file"
+          ngModel
+          class="form-control mb-3"
+          name="image"
+          #image
+
+        />
+        <input
+          type="submit"
+          class="btn btn-warning"
+          value="Update good" [disabled]="f.invalid"
+        />
+      </form>
+    </div>
+  </div>
+</div>

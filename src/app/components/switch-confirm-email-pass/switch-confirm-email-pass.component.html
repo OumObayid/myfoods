@@ -1,0 +1,18 @@
+
+
+<ng-container [ngSwitch]="mode">
+  <!-- password reset -->
+  <ng-container *ngSwitchCase="'resetPassword'">
+    <app-confirm-password></app-confirm-password>
+  </ng-container>
+
+  <!-- verify email address -->
+  <ng-container *ngSwitchCase="'verifyEmail'">
+    <app-confirm-email></app-confirm-email>
+  </ng-container>
+
+  <!-- default action -->
+  <ng-container *ngSwitchDefault>
+    how an error message
+  </ng-container>
+</ng-container>

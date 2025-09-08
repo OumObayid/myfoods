@@ -1,0 +1,64 @@
+<div class="body">
+  <div class="container">
+    <div class="my-5">
+
+      <form #f="ngForm" (ngSubmit)="addNewGood(f)">
+        <input
+          type="text"
+          ngModel
+          class="form-control mb-3"
+          name="name"
+          placeholder="name"
+          required
+        />
+        <input
+          type="number"
+          ngModel
+          class="form-control mb-3"
+          name="price"
+          placeholder="price"
+          required
+        />
+        <input type="file" ngModel class="form-control mb-3" name="image" #image required />
+        <input
+          type="submit"
+          class="btn btn-warning"
+          value="Add new good"
+          [disabled]="f.invalid"
+        />
+      </form>
+    </div>
+
+    <h3 class="bg-success text-center text-white mb-5 py-1">Goods list</h3>
+    <div class="row">
+      <!-- *ngFor="let good of goods; index as i" loop that traverses an array -->
+      <div
+        class="col col-12 col-md-6 col-lg-3"
+        *ngFor="let good of goods; index as i"
+      >
+        <!-- code bootstrap of card -->
+        <div class="card">
+          <img [src]="good.photoUrl" class="card-img-top mx-auto" alt="..." />
+          <!-- <img src="{{ good.photoUrl }}" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <div class="titleprice">
+              <h5 class="card-title">{{ good.name | titlecase }}</h5>
+              <h4 class="card-text text-success">
+                {{ good.price | currency }}
+              </h4>
+            </div>
+            <a
+            [routerLink]="['/updateGood', good.id]">
+            <button  class="btn btn-warning btnUpdate">
+              Update
+            </button>
+          </a>
+            <button (click)="delete(good.id)" class="btn btn-warning btnDelete">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

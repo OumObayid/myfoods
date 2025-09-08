@@ -1,0 +1,17 @@
+.card-img-top
+{
+  width: 180px;
+  height:180px;
+
+}
+
+
+.btn{
+  width: 33%;
+  margin-top: 7px;
+}
+.deletesave:hover{
+  color:#b9154e;
+ }
+
+

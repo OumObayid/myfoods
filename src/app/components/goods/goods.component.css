@@ -1,0 +1,16 @@
+.card-img-top
+{
+  width: 180px;
+  height:180px;
+
+}
+.titleprice{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btnUpdate,.btnDelete {
+  width: 100%;
+  margin-top: 5px;
+}
+

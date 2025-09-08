@@ -1,0 +1,47 @@
+.card-header.bg-gradient {
+  background: linear-gradient(90deg, #4e73df, #224abe);
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.badge {
+  font-size: 0.85rem;
+}
+
+.text-primary {
+  color: #224abe !important;
+}
+
+/* Mini-cartes produits responsive */
+@media (max-width: 767px) {
+  .product-card {
+    width: 100%;
+  }
+  .d-flex.flex-wrap.gap-3 {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-card {
+    width: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .product-card {
+    width: 120px;
+  }
+}

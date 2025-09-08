@@ -1,0 +1,43 @@
+<div class="container my-5">
+  <h2 class="mb-4 text-primary text-center">My Orders</h2>
+
+  <div *ngIf="orders.length === 0" class="alert alert-info text-center">
+    You have no orders yet.
+  </div>
+
+  <div class="row">
+    <div *ngFor="let order of orders" class="col-12 col-md-4 mb-4">
+      <div class="card shadow-sm h-100 border-0">
+        <div class="card-header bg-gradient text-white d-flex justify-content-between align-items-center flex-wrap">
+          <span class="me-2">Order ID: <strong>{{ order.id }}</strong></span>
+          <span>
+            <span [ngClass]="{
+              'badge bg-success': order.status==='completed',
+              'badge bg-warning': order.status==='pending',
+              'badge bg-danger': order.status==='canceled'
+            }">{{ order.status | titlecase }}</span>
+          </span>
+        </div>
+
+        <div class="card-body">
+         
+            <small class="text-muted">Placed on: {{ formatDate(order.createdAt) | date:'medium' }}</small><br>
+            <h5 class="text-primary">Total: {{ order.total | currency }}</h5>
+        
+
+          <div class="d-flex flex-wrap gap-3 justify-content-start">
+            <div *ngFor="let item of order.items" class="card product-card p-2 shadow-sm" style="width: 120px;">
+              <img [src]="item.photoUrl" alt="{{ item.name }}" class="img-fluid rounded mb-2" style="height:70px; object-fit:cover;">
+              <div class="text-center">
+                <p class="mb-1 fw-bold">{{ item.name | titlecase }}</p>
+                <p class="mb-1 small">Qty: {{ item.amount }} kg</p>
+                <p class="mb-0 text-success">{{ (item.amount * item.price) | currency }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
