@@ -1,12 +1,24 @@
-
-# Forcer Angular comme langage principal
+# --- Angular Frontend ---
 *.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
 *.html linguist-language=HTML
-*.css linguist-language=CSS
 *.scss linguist-language=SCSS
-*.component.ts linguist-language=Angular
-*.module.ts linguist-language=Angular
 
-# Ignorer les fichiers générés
-dist/* linguist-vendored
-node_modules/* linguist-vendored
+# --- Ignorer les fichiers PHP utilisés juste pour backend simple ---
+*.php linguist-vendored
+
+# --- Ignorer dossiers générés / node_modules / dist ---
+/angular-frontend/dist/* linguist-vendored
+/angular-frontend/node_modules/* linguist-vendored
+
+# --- JS/CSS compilés ---
+*.js linguist-vendored
+*.css linguist-vendored
+*.map linguist-vendored
+
+# --- Documentation ---
+*.md linguist-documentation
+/.github/* linguist-vendored
+
+# --- Normalisation des fins de lignes ---
+* text=auto
